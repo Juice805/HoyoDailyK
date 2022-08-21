@@ -6,16 +6,23 @@ on:
     - cron: 0 16 * * * # Run daily at 0:00 UTC+8
 
 jobs:
-  Sign-in:
+  Sign-in_Juice:
     runs-on: ubuntu-latest
+    environment: Juice
     env:
       cookie: ltuid=${{ secrets.LTUID }}; ltoken=${{ secrets.LTOKEN }}
     steps:
-      - name: Honkai Impact 3rd
+      - name: Genshin Impact
         run: >
           curl -sb "$cookie" -X POST
-          https://api-os-takumi.mihoyo.com/event/mani/sign?act_id=e202110291205111
+          https://hk4e-api-os.mihoyo.com/event/sol/sign?act_id=e202102251931481
           | jq -r '"Response: \(.message)"'
+  Sign-in_Chao:
+    runs-on: ubuntu-latest
+    environment: Juice
+    env:
+      cookie: ltuid=${{ secrets.LTUID }}; ltoken=${{ secrets.LTOKEN }}
+    steps:
       - name: Genshin Impact
         run: >
           curl -sb "$cookie" -X POST
