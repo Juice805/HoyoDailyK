@@ -19,7 +19,7 @@ jobs:
           | jq -r '"Response: \(.message)"'
   Sign-in_Chao:
     runs-on: ubuntu-latest
-    environment: Juice
+    environment: Chao
     env:
       cookie: ltuid=${{ secrets.LTUID }}; ltoken=${{ secrets.LTOKEN }}
     steps:
